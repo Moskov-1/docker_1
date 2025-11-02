@@ -22,3 +22,13 @@ services:
       ME_CONFIG_BASICAUTH_PASSWORD : root
       # ME_CONFIG_MONGODB_URL : "mongodb://root:root@mongo-latest:27017"  # both works
       ME_CONFIG_MONGODB_URL : mongodb://root:root@mongo-latest:27017/     # both works
+
+  test-app:
+    image: test-app:1.0
+
+    ports:
+    - "5050:3000"
+
+    environment:
+      MONGO_DB_USERNAME : root
+      MONGO_DB_PASSWORD : root
