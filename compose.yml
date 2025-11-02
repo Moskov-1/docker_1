@@ -27,7 +27,8 @@ services:
     image: test-app:1.0
 
     ports:
-    - "5050:3000"
+    # - "5050:3000"
+    - "5050:5050"
 
     environment:
       MONGO_DB_USERNAME : root
