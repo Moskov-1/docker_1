@@ -1,10 +1,23 @@
-FROM node
+FROM node:18
 
-ENV MONGO_DB_USERNAME=root\
+# Set environment variables (avoid using real secrets in Dockerfile)
+ENV MONGO_DB_USERNAME=root \
     MONGO_DB_PASSWORD=root
 
-RUN mkdir -p test-app
+# Create and set working directory
+WORKDIR /test-app
 
-COPY . /test-app
+# Copy package.json and package-lock.json first (for caching)
+COPY package*.json .
 
-CMD ["node", '/test-app/server.js']
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the app
+COPY . .
+
+# Expose the app port (optional)
+EXPOSE 3000
+
+# Start the app
+CMD ["node", "server.js"]
