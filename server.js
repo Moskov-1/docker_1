@@ -3,8 +3,8 @@ const app = express();
 const path = require("path");
 const MongoClient = require("mongodb").MongoClient;
 
-const PORT = 5050;
-// const PORT = 3000;
+// const PORT = 5050;
+const PORT = 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
