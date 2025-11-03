@@ -8,7 +8,7 @@ services:
       MONGO_INITDB_ROOT_PASSWORD : root
     
     volumes:
-    - host_dir:cont_dir
+    - D:\RONY\DOCKER\TEST_1\storage:/data/db
 
   mongo-express:
 
